@@ -4,6 +4,7 @@ const projects = [
     {
         title: 'Traace.io',
         content: 'A web-application for Covid-19 Contact Tracing',
+        fullContent: 'Traace is a web-application for Covid-19 Contact Tracing. The application allows for users to record the places they have been and the people that they have seen. Traace will automatically inform users if they have come into contact with another user who has recorded a positive Covid-19 test.',
         subtext: 'React, Node, Express, PostgreSQL, Google Cloud',
         href: '/project/traace',
         id: 'traace',
