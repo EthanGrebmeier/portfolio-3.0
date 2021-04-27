@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+    margin-top: 20px;
     width: 100%;
-    background: var(--primaryTwo);
+    background: var(--secondary);
     color: white;
     border-radius: 12px;
     padding: 20px;
@@ -20,9 +21,7 @@ const Skills = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
     font-size: 18px;
-    margin: 20px 0 20px 0;
 `
 
 const SkillColumn = styled.div`
