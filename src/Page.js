@@ -88,7 +88,7 @@ const Page = ({content}) => {
                         About:
                     </h1>
                     <p>
-                        {content.content}
+                        {content.fullContent || content.content}
                     </p>
                     <h1>
                         Tech Stack:
