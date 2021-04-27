@@ -14,6 +14,7 @@ const Intro = styled.h2`
     font-weight: 400;
     font-size: 24px;
     width: 100%;
+    margin-bottom: 20px;
 `
 
 const Skills = styled.div`
