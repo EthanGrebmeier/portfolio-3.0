@@ -1,0 +1,12 @@
+.hello-app{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    position: absolute;
+    z-index: 100;
+}
+
+.hello-app h1{
+    font-size: 2em;
+}
