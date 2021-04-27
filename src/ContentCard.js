@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { UilArrowCircleRight } from '@iconscout/react-unicons'
+import { HashLink as Link } from 'react-router-hash-link'
 
-const Wrapper = styled.div`
-    width: 450px;
+const Wrapper = styled(Link)`
+    width: 415px;
     height: 270px;
     display: flex;
     flex-direction: column;
@@ -11,9 +12,10 @@ const Wrapper = styled.div`
     padding: 20px;
     border-radius: 12px;
     color: white;
-    background: ${props => props.color === 'primaryOne' ? 'var(--primaryOne)' : 'var(--primaryTwo)'};
+    background: ${props => props.color ||'var(--secondary)'};
     cursor: pointer;
     position: relative;
+    text-decoration: none;
     @media screen and (max-width: 1250px){
         width: 48%;
         h1{
@@ -22,7 +24,13 @@ const Wrapper = styled.div`
     }
     @media screen and (max-width: 720px){
         width: 100%;
+        height: 220px;
     }
+    :hover{
+        transform: translateY(-5px)
+    }
+
+    transition: transform .2s ease;
 `
 
 const JobDetails = styled.div`
@@ -38,11 +46,14 @@ const Content = styled.p`
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     font-size: ${ props => props.isJob ? '16px' : '24px'};
+    @media screen and (max-width: 720px){
+        height: 60px;
+    }
 `
 
 const Subtext = styled.p`
     height: 40px;
-    width: 75%;
+    width: 80%;
     font-size: 18px;
     font-style: italic;
     @media screen and (max-width: 800px){
@@ -52,6 +63,7 @@ const Subtext = styled.p`
     @media screen and (max-width: 720px){
         font-size: 18px;
         width: 65%;
+        height: 34px;
     }
     @media screen and (max-width: 500px){
         font-size: 13px;
@@ -59,23 +71,12 @@ const Subtext = styled.p`
 
 `
 
-const ViewMore = styled.a`
-    position: absolute;
-    height: 40px;
-    display: flex;
-    gap: 10px;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    color: white;
-    padding: 20px;
-    font-size: 24px;
-`
 
 const ContentCard = (props) => {
-    const isJob = props.position
+    const isJob = props.position 
+
     return(
-        <Wrapper color={props.color}>
+        <Wrapper color={props.color} to={props.href || '#'}>
             <h1>
                 {props.title}
             </h1>
@@ -89,7 +90,7 @@ const ContentCard = (props) => {
             <Subtext>
                 {props.subtext}
             </Subtext>
-            <ViewMore href='#'> More <UilArrowCircleRight color='white' size='30' /> </ViewMore>
+            
         </Wrapper>
     )
 }
