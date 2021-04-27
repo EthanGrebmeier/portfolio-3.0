@@ -7,40 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-  font-family: Montserrat;
-  src: local('./static/fonts/Montserrat-Regular.ttf');
-}
-
-@font-face {
-  font-family: Montserrat;
-  src: local('./static/fonts/Montserrat-Light.ttf');
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: Montserrat;
-  src: local('./static/fonts/Montserrat-Thin.ttf');
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: Montserrat;
-  src: local('./static/fonts/Montserrat-Medium.ttf');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: Montserrat;
-  src: local('./static/fonts/Montserrat-SemiBold.ttf');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Montserrat;
-  src: local('./static/fonts/Montserrat-Bold.ttf');
-  font-weight: 600;
-}
 
 *{
   margin-block-start: 0;
@@ -50,8 +16,6 @@ body {
 #root {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 code {
