@@ -1,137 +1,156 @@
 import styled from 'styled-components'
-import AboutMe from './AboutMe'
-import Links from './Links'
-import ContentCard from './ContentCard'
-import ContentSection from './ContentSection'
-import Landing from './Landing'
-import Contact from './Contact'
+import {BrowserRouter as Router, Route, Switch, Redirect, useParams} from 'react-router-dom'
+import Home from './Home'
+import Page from './Page'
+import Nav from './Nav'
+import projects from './projects'
+import experience from './experience'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import Burger from './Burger'
+import Reader from './Demos/Reader/App'
+import SayHello from './Demos/SayHello/App'
+import Sorter from './Demos/Sorter/App'
 
-const Page = styled.div`
-  width: 98%;
-  max-width: 920px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  background: white;  
-  color: #38E4AE;
-  font-family: 'Montserrat';
-  --primaryOne: #8BCCDA;
-  --primaryTwo: #9F8BDA;
-  @media screen and (max-width: 720px){
-    width: 96%;
-    max-width: 500px;
-  }
 
-  #projects{
-    scroll-padding: -200px;
-  }
-
+export const Site = styled.div`
+width: 100%;
+min-height: 100vh;
+max-width: 100vw;
+--primaryText: ${ props => props.isLightMode  ? '#4A4063' : 'white'};
+--primary: #8BCCDA;
+--secondary: #9F8BDA;
+--background: ${ props => props.isLightMode  ? 'white' : '#4A4063'};
+--articleTextOne: ${ props => props.isLightMode  ? '#4D9078' : '#F2C14E'};
+--articleTextTwo: ${ props => props.isLightMode  ? '#B4436C' : '#F78154'};
+--aside: ${ props => props.isLightMode  ? '#f2f0e9' : '#7966a8'};
+background: var(--background);  
+display: flex;
+justify-content: center;
+transition: all .4s ease;
+position: relative;
 `
 
-const Header = styled.nav`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px 10px 20px;
-  box-sizing: border-box;
-  position: sticky;
-  top: 15px;
-  background: rgba(255,255,255,.9);
-  border-radius: 12px;
-  z-index: 200;
-  a {
-    color: var(--primaryOne);
-    font-size: 24px;
-    font-weight: 500;
-    text-decoration: none;
+
+const App = () => {
+
+  const [isLightMode, setIsLightMode] = useState(true)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
+
+  const getMode = () => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+      return false
+    }
+    return true
   }
 
-  @media screen and (max-width: 720px){
-    display: none;
+  useEffect(() => {
+    setIsLightMode(getMode())
+  }, [])
+
+  const toggleLightMode = () => {
+    if (isLightMode) {
+      setIsLightMode(false)
+    } else {
+      setIsLightMode(true)
+    } 
   }
-`
 
-function App() {
-  return (
-    <Page>
-      <Header>
-        <a href='#projects'> Projects  </a>
-        <a href='#experience'> Experience  </a>
-        <a href='#about'> About  </a>
-        <a href='#contact'> Contact Me  </a>
-      </Header>
+  const Match = ({list}) => {
+    let {id} = useParams()
+    for (let i in list){
+      if (list[i].id === id){
+        return (<Page content={list[i]} />)
+      }
+    }
+    return (
+    <Home
+      projects={projects}
+      experience={experience}
+    />)
+  }
 
-      <Landing/>
-      
-      <ContentSection title='Projects' color='#8BCCDA' id='projects'>
-        <ContentCard 
-          title='Traace.io' 
-          content='A web-application for Covid-19 Links Tracing'
-          subtext='React, Node, Express, PostgreSQL'
-        />
-        <ContentCard 
-          title='Sorter' 
-          content='A sorting algorithm visualizer'
-          subtext='React'
-        />
-        <ContentCard 
-          title='Say Hello' 
-          content='A lightweight Twitter clone'
-          subtext='React, Node, Express, MongoDB'
-        />
-        <ContentCard 
-          title='Reader' 
-          content='A speed reading assistant'
-          subtext='React'
-        />
-      </ContentSection>
+  const Demo = () => {
+    let {id} = useParams()
+    console.log(id)
+    switch (id) {
+      case 'reader':
+        return <Reader/>
+      case 'say-hello':
+        return <SayHello/>
+      case 'sorter': 
+        return <Sorter/>
+      default:
+        return (
+        <Home
+          projects={projects}
+          experience={experience}
+        />)
+    }
+  }
 
-      <ContentSection title='Experience' color='#9F8BDA' id='experience'>
-        <ContentCard 
-          color='primaryOne'
-          title='The Future is Good' 
-          position='Web Developer'
-          length='Jun ‘20 - Present'
-          content='The Future is Good (The FIG) is an online marketplace, tool, and resource that
-          helps customers to actively reduce their carbon footprint.'
-          subtext='React, Node, Express, PostgreSQL'
-        />
-        <ContentCard 
-          color='primaryOne'
-          title='Mustang Media Group' 
-          position='Web Developer'
-          length='Nov ‘20 - Mar ‘21'
-          content='Mustang Media Group oversees Cal Poly’s print and online news, as well as KCPR, the
-          school‘s radio station.'
-          subtext='React, Node, Express, MongoDB, Google Cloud, Wordpress'
-        />
-        <ContentCard 
-          color='primaryOne'
-          title='ShipOffers' 
-          position='Integrated Logistics Support Specialist'
-          length='Nov ‘19 - Present'
-          content='Shipoffers is one of the top shipping and fulfillment companies, working
-          primariliy with health and beauty products.'
-          subtext='Python, PostgreSQL'
-        />
-      </ContentSection>
-      <ContentSection title='About me' color='#8BCCDA' id='about'>
-        <AboutMe/>
-      </ContentSection>
+  const Wrapper = styled.div`
+    width: 98%;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    :not(:last-child) {
+      margin-top: 20px;
+    }
+    position: relative;
+    font-family: 'Montserrat';
+    @media screen and (max-width: 720px){
+      width: 93%;
+      max-width: 500px;
+    }
+  `
 
-      <ContentSection title='Where you can find me' color='#9F8BDA' id='contact'>
-        <Links/>
-      </ContentSection>
+  return(
+    <Site isLightMode={isLightMode}>
+      <Router>
+        <Wrapper>
 
-      <ContentSection title='Contact Me' color='var(--primaryOne)' id='contact'>
-        <Contact/>
-      </ContentSection>
+          <Nav  
+            projects={projects}
+            experience={experience}
+            isLightMode={isLightMode}
+            toggleLightMode={toggleLightMode}
+            setIsMobileOpen={setIsMobileOpen}
+            isMobileOpen={isMobileOpen}
+          />
+          <Burger
+            isMobileOpen={isMobileOpen}
+            setIsMobileOpen={setIsMobileOpen}
+          />
+          
+            <Switch>
+              <Route exact path='/'>
+                <Home
+                  projects={projects}
+                  experience={experience}
+                />
+              </Route>
+              <Route path='/project/:id'>
+                <Match list={projects}/>
+              </Route>
+              <Route path='/experience/:id'>
+                <Match list={experience}/>
+              </Route>
+            </Switch> 
+        </Wrapper>
+        <Switch>
+          <Route path='/project/:id/demo'>
+            <>
+              <Demo list={projects}/> 
+            </>
+          </Route>
 
-    </Page>
-  );
+        </Switch>
+
+      </Router>
+    </Site>
+  )
 }
 
-export default App;
+export default App
