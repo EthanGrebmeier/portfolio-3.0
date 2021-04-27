@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { UilReact, UilJavaScript} from '@iconscout/react-unicons'
 import useWindowDimensions from './useWindowDimensions'
 
@@ -60,6 +60,11 @@ const Skills = styled.div`
     }
 `
 
+const Float = keyframes`
+    from{transform: translateY(0);}
+    to{transform: translateY(10px);}
+`
+
 const Skill = styled.div`
     width: 130px;
     height: 125px;
@@ -70,6 +75,12 @@ const Skill = styled.div`
     justify-content: center;
     align-items: center;
     color: white;
+    animation-delay: ${props => props.delay};
+    animation-name: ${Float};
+    animation-duration: ${props => props.duration};
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
     h1{
         font-size: 72px;
     }
@@ -88,8 +99,15 @@ const Skill = styled.div`
     }
 `
 
+
 const Landing = () => {
     const windowDimensions = useWindowDimensions()
+    const getRandomStart = () => {
+        return Math.floor((Math.random() * 5) + 1)
+    }
+    const getRandomDuration = () => {
+        return Math.random() * (4 - 2) + 2;
+    }
     return (
     <Wrapper>
         <Nametag>
@@ -98,15 +116,15 @@ const Landing = () => {
         </Nametag>
 
         <Skills>
-            <Skill>
+            <Skill delay={() => '-' + getRandomStart() + 's'} duration={() => getRandomDuration() + 's'}>
                 <UilReact size={windowDimensions.width > 720 ? 90 : 50} color='white'/>
                 <h2> React </h2>
             </Skill>
-            <Skill>
+            <Skill delay={() => '-' + getRandomStart() + 's'} duration={() => getRandomDuration() + 's'} >
                 <UilJavaScript size={windowDimensions.width > 720 ? 90 : 50} color='white'/>
                 <h2> Node.js </h2>
             </Skill>
-            <Skill>
+            <Skill delay={() => '-' + getRandomStart() + 's'} duration={() => getRandomDuration() + 's'}>
                 <h1> 5 </h1>
                 <h2> HTML5 </h2>
             </Skill>
