@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { UilReact, UilJavaScript} from '@iconscout/react-unicons'
 import useWindowDimensions from './useWindowDimensions'
-import { useState } from "react";
-
 
 const Wrapper = styled.div` 
     display: flex;
@@ -11,24 +9,25 @@ const Wrapper = styled.div`
     width: 100%;
     flex-wrap: wrap;
     height: 350px;
-    gap: 20px;
     @media screen and (max-width: 720px){
-        height: 350px;
+        margin-top: 40px;
+        height: 250px;
     }
 `
 
 const Nametag = styled.div`
-    margin-top: 20px;
-    height: 200px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: var(--primaryOne);
+    box-sizing: border-box;
+    padding-left: 5px;
+    color: var(--primaryText);
     h1 {
         font-size: 54px;
         font-weight: 500;
-        line-height: 70px;
-        width: 200px
+        line-height: 60px;
+        width: 220px
     }
 
     h3 {
@@ -38,7 +37,7 @@ const Nametag = styled.div`
 
     @media screen and (max-width: 720px){
         width: 100%;
-        height: 160px;
+        height: 150px;
         h1 {
             line-height: 50px;
             font-size: 54px;
@@ -57,6 +56,7 @@ const Skills = styled.div`
     align-items: center;
     @media screen and (max-width: 720px){
         width: 100%;
+        display: none;
     }
 `
 
@@ -64,7 +64,7 @@ const Skill = styled.div`
     width: 130px;
     height: 125px;
     border-radius: 12px;
-    background: var(--primaryTwo);
+    background: var(--secondary);
     display: flex;
     flex-direction: column;
     justify-content: center;
