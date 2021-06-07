@@ -39,7 +39,7 @@ const JobDetails = styled.div`
 `
 
 const Content = styled.p`
-    height: 60px;
+    height: 59px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
