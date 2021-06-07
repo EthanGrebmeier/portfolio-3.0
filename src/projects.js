@@ -1,6 +1,18 @@
 import Traace from './articles/Traace'
+import Whatever from './articles/Whatever'
 
 const projects = [
+    {
+        title: 'Whatever',
+        content: 'An all-in-one desktop assistant',
+        fullContent: 'Whatever is an all-in-one desktop assistant. The application allows for users to set up their 2x2 workspace in whatever configuration works best for them ',
+        subtext: 'Next.JS, Redux, Node, Express, MongoDB',
+        href: '/project/whatever',
+        id: 'whatever',
+        demo: 'https://whatever-sepia.vercel.app/',
+        github: 'https://github.com/EthanGrebmeier/whatever',
+        article: Whatever
+    },
     {
         title: 'Traace.io',
         content: 'A web-application for Covid-19 Contact Tracing',
@@ -8,7 +20,7 @@ const projects = [
         subtext: 'React, Node, Express, PostgreSQL, Google Cloud',
         href: '/project/traace',
         id: 'traace',
-        demo: 'https://www.traace.io',
+        demo: 'https://traace.io',
         github: 'https://github.com/EthanGrebmeier/contact-tracing-server',
         article: Traace
     },
