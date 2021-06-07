@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Site } from './App'
 import ContentSection from './ContentSection'
+import {useEffect} from 'react'
 
 const Wrapper =  styled.div`
     margin-top: 20px;
@@ -49,10 +50,18 @@ const Links = styled.div`
 const Page = ({content}) => {
     const isJob = content.position
     let link
+
+    useEffect(() => {
+        
+        window.scrollTo({
+            top: 0
+        })
+    }, [])
+    
     const renderLinks = () => {
         if (!isJob) {
             if (content.demo){
-                link = <a href='https://traace.io' target='_blank' rel='noreferrer'> Demo </a>
+                link = <a href={content.demo} target='_blank' rel='noreferrer'> Demo </a>
             } else {
                 link = <Link to={content.href + '/demo'} target='_blank' rel='noreferrer'> Demo </Link>
             } 
