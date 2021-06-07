@@ -51,6 +51,9 @@ const AboutMe = () => {
                             Next.JS - 6 Months
                         </li>
                         <li>
+                            Redux - 1 Month
+                        </li>
+                        <li>
                             HTML5 - 2 Years
                         </li>
                         <li>
