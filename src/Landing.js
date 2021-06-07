@@ -60,10 +60,6 @@ const Skills = styled.div`
     }
 `
 
-const Float = keyframes`
-    from{transform: translateY(0);}
-    to{transform: translateY(10px);}
-`
 
 const Skill = styled.div`
     width: 130px;
@@ -75,12 +71,6 @@ const Skill = styled.div`
     justify-content: center;
     align-items: center;
     color: white;
-    animation-delay: ${props => props.delay};
-    animation-name: ${Float};
-    animation-duration: ${props => props.duration};
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
     h1{
         font-size: 72px;
     }
