@@ -27,6 +27,7 @@ const Skills = styled.div`
 
 const SkillColumn = styled.div`
     width: 350px; 
+    margin: 20px 0 20px 0;
 `
 
 const AboutMe = () => {
@@ -47,19 +48,19 @@ const AboutMe = () => {
                             React - 1.5 Years
                         </li>
                         <li>
-                            Next.JS - 4 Months
+                            Next.JS - 6 Months
                         </li>
                         <li>
                             HTML5 - 2 Years
                         </li>
                         <li>
-                            Styled Components - 4 Months
+                            Styled Components - 6 Months
                         </li>
                         <li>
                             SASS - 1.5 Years
                         </li>
                         <li>
-                            CSS - 2 Years
+                            CSS3 - 2 Years
                         </li>  
                     </ul>
                 </SkillColumn>
