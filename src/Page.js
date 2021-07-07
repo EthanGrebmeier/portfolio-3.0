@@ -52,21 +52,19 @@ const Page = ({content}) => {
     let link
 
     useEffect(() => {
-        
         window.scrollTo({
             top: 0
         })
     }, [])
     
     const renderLinks = () => {
-        if (!isJob) {
-            if (content.demo){
-                link = <a href={content.demo} target='_blank' rel='noreferrer'> Demo </a>
-            } else {
-                link = <Link to={content.href + '/demo'} target='_blank' rel='noreferrer'> Demo </Link>
-            } 
-            
-        }
+        
+        if (content.demo){
+            link = <a href={content.demo} target='_blank' rel='noreferrer'> Demo </a>
+        } else {
+            link = <Link to={content.href + '/demo'} target='_blank' rel='noreferrer'> Demo </Link>
+        } 
+
         return (
             <>
                 {link}
