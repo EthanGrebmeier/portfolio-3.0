@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 const Wrapper = styled.p`
     font-size: 18px;
-    line-height: 28px;
     color: var(--primaryText);
-    margin: 20px 0 20px 0;
+    margin-bottom: 20px;
+    font-weight: 500; 
+    line-height: 1.6;
 `
 export default Wrapper
