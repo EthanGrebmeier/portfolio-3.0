@@ -1,3 +1,6 @@
+import TheFIGArticle from "./articles/TheFIG"
+
+
 const experience = [
     {
         color:'var(--primary)',
@@ -7,7 +10,9 @@ const experience = [
         content:'The Future is Good (The FIG) is an online marketplace, tool, and resource that helps customers to actively reduce their carbon footprint.',
         subtext:'React, Node, Express, PostgreSQL',
         href: '/experience/thefig',
-        id: 'thefig'
+        demo: 'https://carbon-neutral-challenge.vercel.app',
+        id: 'thefig',
+        article: TheFIGArticle
     },
     {
         color:'var(--primary)',

@@ -1,5 +1,5 @@
-import Traace from './articles/Traace'
-import Whatever from './articles/Whatever'
+import TraaceArticle from './articles/Traace'
+import WhateverArticle from './articles/Whatever'
 
 const projects = [
     {
@@ -11,7 +11,7 @@ const projects = [
         id: 'whatever',
         demo: 'https://whatever-sepia.vercel.app/',
         github: 'https://github.com/EthanGrebmeier/whatever',
-        article: Whatever
+        article: WhateverArticle
     },
     {
         title: 'Traace.io',
@@ -22,7 +22,7 @@ const projects = [
         id: 'traace',
         demo: 'https://traace.io',
         github: 'https://github.com/EthanGrebmeier/contact-tracing-server',
-        article: Traace
+        article: TraaceArticle
     },
     {
         title: 'Sorter',
