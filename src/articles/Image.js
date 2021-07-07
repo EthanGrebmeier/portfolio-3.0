@@ -6,6 +6,7 @@ const Wrapper = styled.div`
     width: 100%;
     flex-direction: column;
     margin-top: 20px;
+    margin-bottom: 20px;
     position: relative;
     filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.5));
     img{
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
         bottom: 15px;
         left: 15px;
         margin: 0;
+        font-size: 16px;
     }
 `
 
