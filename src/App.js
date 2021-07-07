@@ -17,10 +17,10 @@ export const Site = styled.div`
 width: 100%;
 min-height: 100vh;
 max-width: 100vw;
---primaryText: ${ props => props.isLightMode  ? '#4A4063' : 'white'};
+--primaryText: ${ props => props.isLightMode  ? '#362F48' : 'white'};
 --primary: #8BCCDA;
 --secondary: #9F8BDA;
---background: ${ props => props.isLightMode  ? 'white' : '#4A4063'};
+--background: ${ props => props.isLightMode  ? 'white' : '#362F48'};
 --articleTextOne: ${ props => props.isLightMode  ? '#4D9078' : '#F2C14E'};
 --articleTextTwo: ${ props => props.isLightMode  ? '#B4436C' : '#F78154'};
 --aside: ${ props => props.isLightMode  ? '#f2f0e9' : '#7966a8'};
@@ -30,6 +30,23 @@ justify-content: center;
 transition: all .4s ease;
 position: relative;
 `
+
+const Wrapper = styled.div`
+    width: 98%;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    :not(:last-child) {
+      margin-top: 20px;
+    }
+    position: relative;
+    font-family: 'Montserrat';
+    @media screen and (max-width: 720px){
+      width: 93%;
+      max-width: 500px;
+    }
+  `
 
 
 const App = () => {
@@ -89,22 +106,6 @@ const App = () => {
     }
   }
 
-  const Wrapper = styled.div`
-    width: 98%;
-    max-width: 850px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    :not(:last-child) {
-      margin-top: 20px;
-    }
-    position: relative;
-    font-family: 'Montserrat';
-    @media screen and (max-width: 720px){
-      width: 93%;
-      max-width: 500px;
-    }
-  `
 
   return(
     <Site isLightMode={isLightMode}>
